@@ -42,7 +42,8 @@ class BlogpostTest(TestCase):
 
 class HomepageTestCase(LiveServerTestCase):
     def setUp(self):
-        self.selenium = webdriver.Chrome('/Users/lz/Virtualenvs/BlogEnv/selenium/webdriver/chrome/chromedriver')
+        # self.selenium = webdriver.Chrome('/Users/lz/Virtualenvs/BlogEnv/selenium/webdriver/chrome/chromedriver')
+        self.selenium = webdriver.Firefox()
         self.selenium.maximize_window()
         super(HomepageTestCase, self).setUp()
 
@@ -68,7 +69,8 @@ class BlogpostDetailCase(LiveServerTestCase):
             posted=datetime.now
         )
 
-        self.selenium = webdriver.Chrome('/Users/lz/Virtualenvs/BlogEnv/selenium/webdriver/chrome/chromedriver')
+        # self.selenium = webdriver.Chrome('/Users/lz/Virtualenvs/BlogEnv/selenium/webdriver/chrome/chromedriver')
+        self.selenium = webdriver.Firefox()
         self.selenium.maximize_window()
         super(BlogpostDetailCase, self).setUp()
 
@@ -93,7 +95,8 @@ class BlogpostFromHomepageCase(LiveServerTestCase):
             posted=datetime.now
         )
 
-        self.selenium = webdriver.Chrome('/Users/lz/Virtualenvs/BlogEnv/selenium/webdriver/chrome/chromedriver')
+        # self.selenium = webdriver.Chrome('/Users/lz/Virtualenvs/BlogEnv/selenium/webdriver/chrome/chromedriver')
+        self.selenium = webdriver.Firefox()
         self.selenium.maximize_window()
         super(BlogpostFromHomepageCase, self).setUp()
 
