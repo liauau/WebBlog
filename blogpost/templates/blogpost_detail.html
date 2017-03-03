@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
+{% load comments %}
+
 {% block head_title %}{{ post.title }}{% endblock %}
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-<h2>{{ post.title }}</a></h2>
-<p>{{post.posted}} - By {{post.author}}</p>
-<p>{{post.body}}</p>
+<div class="mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        {{post.body}}
+    </div>
+    <div class="mdl-card__actions">
+        {{post.posted}} - By {{post.author}}
+    </div>
+</div>
+
+{% render_comment_list for post %}
+
+{% get_comment_count for post as comment_count %}
+
+<p>This event has {{ comment_count }} comments.</p>
+
 {% endblock %}
